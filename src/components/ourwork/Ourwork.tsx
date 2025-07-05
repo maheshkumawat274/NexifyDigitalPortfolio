@@ -17,6 +17,14 @@ const projects: Project[] = [
     link: "https://generalmedicalsupplies.co.nz/"
   },
   {
+    name: "Global Heart Clinic",
+    category: "Medical / Healthcare",
+    description: "Specialist online platform for heart care, providing medical consultations and tailored healthcare services.",
+    image: "/imgs/intro.jpg",
+    link: "https://globalheartclinic.com/"
+  },
+
+  {
     name: "Active IT Zone Shop CMS",
     category: "E-commerce CMS",
     description: "Powerful PWA e-commerce CMS with dynamic offers & one-page checkout.",
@@ -71,7 +79,15 @@ const projects: Project[] = [
     description: "Minimal, clean UI e-commerce store template with responsive design.",
     image: "/imgs/brands.jpg",
     link: "https://eshopweb.store/"
-  }
+  },
+  {
+  name: "Kishangarh Fresh Dairy",
+  category: "Dairy Delivery / E-commerce",
+  description: "I designed and developed this platform for a local dairy service in Kishangarh,farm-fresh milk",
+  image: "/imgs/dairy.jpg",
+  link: "https://kishangarhfresh.com/"
+}
+
 ];
 
 const Ourwork: React.FC = () => {
