@@ -15,7 +15,7 @@ const SocialMediaIcons = () => {
       {/* Instagram */}
       <div className="social-button">
         <a
-        href="https://www.instagram.com/drajeetaje1234/"
+        href="https://www.instagram.com/nexifydigital.in/"
         target="_blank"
         rel="noopener noreferrer">
         <button className="relative w-12 h-12 cursor-pointer rounded-full group">
@@ -31,7 +31,7 @@ const SocialMediaIcons = () => {
       {/* LinkedIn */}
       <div className="social-button">
         <a
-        href="https://www.linkedin.com/in/ajeet-singh-8a582266/"
+        href="https://www.linkedin.com/company/nexifydigital-solutions/"
         target="_blank"
         rel="noopener noreferrer">
         <button className="relative w-12 h-12 cursor-pointer rounded-full group">
@@ -44,22 +44,7 @@ const SocialMediaIcons = () => {
       </div>
 
       
-      {/* Facebook */}
-      <div className="social-button">
       
-          <a
-        href="https://www.facebook.com/globalhealthclinic2015/"
-        target="_blank"
-        rel="noopener noreferrer">
-          <button className="relative w-12 h-12 cursor-pointer rounded-full group">
-          <div className="floater w-full h-full absolute top-0 left-0 bg-blue-500 rounded-full duration-300 group-hover:-top-8 group-hover:shadow-2xl"></div>
-          <div className="icon relative z-10 w-full h-full flex items-center justify-center border-2 border-blue-500 rounded-full">
-            <FaFacebookF className="text-white group-hover:text-[#b7b5e0] duration-300" size={22} />
-          </div>
-        </button>
-        </a>
-        
-      </div>
 
       {/* YouTube */}
       <div className="social-button">
@@ -75,7 +60,23 @@ const SocialMediaIcons = () => {
         </button>
         </a>
       </div>
-
+       
+       {/* Facebook */}
+      <div className="social-button">
+      
+          <a
+        href="https://www.facebook.com/profile.php?id=61575985723004"
+        target="_blank"
+        rel="noopener noreferrer">
+          <button className="relative w-12 h-12 cursor-pointer rounded-full group">
+          <div className="floater w-full h-full absolute top-0 left-0 bg-blue-500 rounded-full duration-300 group-hover:-top-8 group-hover:shadow-2xl"></div>
+          <div className="icon relative z-10 w-full h-full flex items-center justify-center border-2 border-blue-500 rounded-full">
+            <FaFacebookF className="text-white group-hover:text-[#b7b5e0] duration-300" size={22} />
+          </div>
+        </button>
+        </a>
+        
+      </div>
       {/* WhatsApp */}
       {/* <div className="social-button">
         <a

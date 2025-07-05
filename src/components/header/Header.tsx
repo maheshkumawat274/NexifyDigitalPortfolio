@@ -30,7 +30,7 @@ const Header: React.FC = () => {
           </ul>
         </nav>
         <div className="hidden sm:block">
-          <a href="">
+          <a href="https://linktr.ee/nexifydigital">
             <HeaderBtn/>
           </a>
         </div>
@@ -102,7 +102,7 @@ const Header: React.FC = () => {
             </div>
           </a>
           <div className="block md:hidden">
-            <a>
+            <a href="https://linktr.ee/nexifydigital">
               <HeaderBtn/>
             </a>
           </div>
