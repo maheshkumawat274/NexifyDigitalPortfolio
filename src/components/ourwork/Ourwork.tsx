@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React from "react";
 
 interface Project {
   name: string;
@@ -9,6 +9,13 @@ interface Project {
 }
 
 const projects: Project[] = [
+  {
+    name: "Rohit Prashar Portfolio",
+    category: "Personal Portfolio",
+    description: "Personal portfolio website featuring projects, biography, and insights.",
+    image: "/imgs/rohitprashar.jpg", // Provide or host this image in your project assets
+    link: "https://rohitprashar.com/"
+  },
   {
     name: "General Medical Supplies (NZ)",
     category: "Medical / E-commerce",
@@ -23,7 +30,13 @@ const projects: Project[] = [
     image: "/imgs/intro.jpg",
     link: "https://globalheartclinic.com/"
   },
-
+  {
+    name: "The Indian Wedding Films",
+    category: "Wedding / Entertainment",
+    description: "Cinematic wedding film services with elegant visual storytelling.",
+    image: "/imgs/indianweddingfilms.jpg",
+    link: "https://theindianweddingfilms.com/"
+  },
   {
     name: "Active IT Zone Shop CMS",
     category: "E-commerce CMS",
@@ -81,92 +94,65 @@ const projects: Project[] = [
     link: "https://eshopweb.store/"
   },
   {
-  name: "Kishangarh Fresh Dairy",
-  category: "Dairy Delivery / E-commerce",
-  description: "I designed and developed this platform for a local dairy service in Kishangarh,farm-fresh milk",
-  image: "/imgs/dairy.jpg",
-  link: "https://kishangarhfresh.com/"
-}
-
+    name: "Kishangarh Fresh Dairy",
+    category: "Dairy Delivery / E-commerce",
+    description: "I designed and developed this platform for a local dairy service in Kishangarh, farm-fresh milk",
+    image: "/imgs/dairy.jpg",
+    link: "https://kishangarhfresh.com/"
+  },
+  // New projects added below
+  {
+    name: "Well Global Inc.",
+    category: "Corporate / Business",
+    description: "Global solutions and services showcased with a polished business-oriented layout.",
+    image: "/imgs/new4.jpg",   // You’ll need to provide or host the image file at this path
+    link: "https://wellglobalinc.com/"
+  },
+  
 ];
 
 const Ourwork: React.FC = () => {
- const containerRefs = useRef<(HTMLDivElement | null)[]>([]);
-  const imageRefs = useRef<(HTMLImageElement | null)[]>([]);
+  return (
+    <section id="work" className="py-16 px-4">
+      <div className="max-w-7xl mx-auto text-center">
+        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#4d2c91]">
+          Our Work
+        </h2>
+        <p className="text-gray-600 mb-12 max-w-xl mx-auto">
+          From business websites to complex e-commerce platforms, here’s a
+          glimpse of what we’ve delivered.
+        </p>
 
-  const handleMouseMove = (
-    e: React.MouseEvent<HTMLDivElement>,
-    index: number
-  ) => {
-    const container = containerRefs.current[index];
-    const image = imageRefs.current[index];
-
-    if (container && image) {
-      const rect = container.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-
-      image.style.left = `${x}px`;
-      image.style.top = `${y}px`;
-      image.style.opacity = "1";
-    }
-  };
-
-  const handleMouseLeave = (index: number) => {
-    const image = imageRefs.current[index];
-    if (image) {
-      image.style.opacity = "0";
-    }
-  };
-  return(
-
-  
-  <section id="work" className="py-16 px-4 ">
-    <div className="max-w-7xl mx-auto text-center">
-      <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#4d2c91]">Our Work</h2>
-      <p className="text-gray-600 mb-12 max-w-xl mx-auto">
-        From business websites to complex e-commerce platforms, here’s a glimpse of what we’ve delivered.
-      </p>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {projects.map((p, i) => (
-          <div key={i}
-          ref={(el) => {
-                containerRefs.current[i] = el;
-              }}
-              onMouseMove={(e) => handleMouseMove(e, i)}
-              onMouseLeave={() => handleMouseLeave(i)}
-
-           className="bg-white rounded-xl shadow-md overflow-hidden hover:scale-105 transform transition duration-300">
-             <img
-                ref={(el) => {
-                  imageRefs.current[i] = el;
-                }}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {projects.map((p, i) => (
+            <div
+              key={i}
+              className="bg-white rounded-xl shadow-md overflow-hidden hover:scale-105 transform transition duration-300"
+            >
+              <img
                 src={p.image}
-                alt=""
-                className="h-24 w-24 rounded-full absolute pointer-events-none opacity-0 transition-all duration-200 z-50"
-                style={{ transform: "translate(-50%, -50%)" }}
+                alt={p.name}
+                className="w-full h-48 object-cover"
               />
-               {/* Static image */}
-              <img src={p.image} alt={p.name} className="w-full h-48 object-cover" />
-            <div className="p-4 text-left">
-              <h3 className="text-xl font-semibold mb-1">{p.name}</h3>
-              <p className="text-sm text-gray-500 mb-2">{p.category}</p>
-              <p className="text-gray-600 mb-4">{p.description}</p>
-              <a
-                href={p.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[#4d2c91] font-medium hover:underline"
-              >
-                View Site
-              </a>
+              <div className="p-4 text-left">
+                <h3 className="text-xl font-semibold mb-1">{p.name}</h3>
+                <p className="text-sm text-gray-500 mb-2">{p.category}</p>
+                <p className="text-gray-600 mb-4">{p.description}</p>
+                <a
+                  href={p.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#4d2c91] font-medium hover:underline"
+                >
+                  View Site
+                </a>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
-    </div>
-  </section>
-);}
+    </section>
+  );
+};
 
 export default Ourwork;

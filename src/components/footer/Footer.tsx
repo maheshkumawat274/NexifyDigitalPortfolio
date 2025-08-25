@@ -1,5 +1,5 @@
 import React from "react";
-import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
+import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaGlobe } from "react-icons/fa";
 
 const Footer: React.FC = () => {
   return (
@@ -10,7 +10,8 @@ const Footer: React.FC = () => {
         <div>
           <h3 className="text-xl font-semibold mb-4">NexifyDigital</h3>
           <p className="text-sm text-gray-300 leading-relaxed">
-            NexifyDigital is your trusted partner for website development, app solutions, and digital growth. We help businesses stand out online with creative and affordable solutions.
+            NexifyDigital is your trusted partner for website development, app solutions, and digital growth. 
+            We help businesses stand out online with creative and affordable solutions.
           </p>
         </div>
 
@@ -18,11 +19,56 @@ const Footer: React.FC = () => {
         <div>
           <h3 className="text-xl font-semibold mb-4">Our Services</h3>
           <ul className="space-y-2 text-sm text-gray-300">
-            <li>Website Development</li>
-            <li>Mobile App Development</li>
-            <li>Digital Marketing</li>
-            <li>Video Editing</li>
-            <li>Software Development</li>
+            <li>
+              <a 
+                href="https://nexifydigital.in" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="hover:underline"
+              >
+                Website Development
+              </a>
+            </li>
+            <li>
+              <a 
+                href="https://nexifydigital.in" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="hover:underline"
+              >
+                Mobile App Development
+              </a>
+            </li>
+            <li>
+              <a 
+                href="https://nexifydigital.in" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="hover:underline"
+              >
+                Digital Marketing
+              </a>
+            </li>
+            <li>
+              <a 
+                href="https://nexifydigital.in" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="hover:underline"
+              >
+                Video Editing
+              </a>
+            </li>
+            <li>
+              <a 
+                href="https://nexifydigital.in" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="hover:underline"
+              >
+                Software Development
+              </a>
+            </li>
           </ul>
         </div>
 
@@ -38,6 +84,17 @@ const Footer: React.FC = () => {
             </li>
             <li className="flex items-center gap-2">
               <FaMapMarkerAlt /> Delhi, India
+            </li>
+            <li className="flex items-center gap-2">
+              <FaGlobe /> 
+              <a 
+                href="https://nexifydigital.in" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="hover:underline"
+              >
+                www.nexifydigital.in
+              </a>
             </li>
           </ul>
         </div>
