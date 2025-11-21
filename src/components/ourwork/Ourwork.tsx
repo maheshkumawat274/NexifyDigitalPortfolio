@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import config from "../../../config";
 
 interface Project {
+  id: number;
   name: string;
   category: string;
   description: string;
@@ -8,110 +10,31 @@ interface Project {
   link: string;
 }
 
-const projects: Project[] = [
-  {
-    name: "Rohit Prashar Portfolio",
-    category: "Personal Portfolio",
-    description: "Personal portfolio website featuring projects, biography, and insights.",
-    image: "/imgs/rohitprashar.jpg", // Provide or host this image in your project assets
-    link: "https://rohitprashar.com/"
-  },
-  {
-    name: "General Medical Supplies (NZ)",
-    category: "Medical / E-commerce",
-    description: "Online store for medical & surgical equipment, tailored specialist products.",
-    image: "/imgs/medical.jpg",
-    link: "https://generalmedicalsupplies.co.nz/"
-  },
-  {
-    name: "Global Heart Clinic",
-    category: "Medical / Healthcare",
-    description: "Specialist online platform for heart care, providing medical consultations and tailored healthcare services.",
-    image: "/imgs/intro.jpg",
-    link: "https://globalheartclinic.com/"
-  },
-  {
-    name: "The Indian Wedding Films",
-    category: "Wedding / Entertainment",
-    description: "Cinematic wedding film services with elegant visual storytelling.",
-    image: "/imgs/indianweddingfilms.jpg",
-    link: "https://theindianweddingfilms.com/"
-  },
-  {
-    name: "Active IT Zone Shop CMS",
-    category: "E-commerce CMS",
-    description: "Powerful PWA e-commerce CMS with dynamic offers & one-page checkout.",
-    image: "/imgs/eco-cms.jpg",
-    link: "https://shop.activeitzone.com/"
-  },
-  {
-    name: "Portronics India",
-    category: "Electronics E-commerce",
-    description: "India’s portable gadgets brand—headphones, speakers, power banks—10M+ products sold.",
-    image: "/imgs/elctronics.jpg",
-    link: "https://ptronics.in/"
-  },
-  {
-    name: "Yoori by Spagreen",
-    category: "E-commerce (Multi-vendor)",
-    description: "Modern multi-vendor platform with sleek design & responsive layout.",
-    image: "/imgs/multivendor.jpg",
-    link: "https://yoori.spagreen.net/"
-  },
-  {
-    name: "Nest Botble Theme",
-    category: "E-commerce Template",
-    description: "Clean and modern e-commerce theme demo built with Botble CMS.",
-    image: "/imgs/botble.jpg",
-    link: "https://nest.botble.com/"
-  },
-  {
-    name: "Srijana Global",
-    category: "Business Website",
-    description: "Professional business website for Srijana Global, showcasing services & expertise.",
-    image: "/imgs/business.jpg",
-    link: "https://srijanaglobal.in/"
-  },
-  {
-    name: "GeniusCart - Genius Ocean",
-    category: "E-commerce Platform",
-    description: "Product marketplace built with GeniusCart for seamless online shopping.",
-    image: "/imgs/shopping.jpg",
-    link: "https://product.geniusocean.com/geniuscarttt/"
-  },
-  {
-    name: "Quomodo Shop Us",
-    category: "E-commerce (React)",
-    description: "React-based e-commerce storefront for modern online shopping experience.",
-    image: "/imgs/shopping1.jpg",
-    link: "https://shopus-quomodo.vercel.app/"
-  },
-  {
-    name: "EshopWeb Store",
-    category: "E-commerce Template",
-    description: "Minimal, clean UI e-commerce store template with responsive design.",
-    image: "/imgs/brands.jpg",
-    link: "https://eshopweb.store/"
-  },
-  {
-    name: "Kishangarh Fresh Dairy",
-    category: "Dairy Delivery / E-commerce",
-    description: "I designed and developed this platform for a local dairy service in Kishangarh, farm-fresh milk",
-    image: "/imgs/dairy.jpg",
-    link: "https://kishangarhfresh.com/"
-  },
-  // New projects added below
-  {
-    name: "Well Global Inc.",
-    category: "Corporate / Business",
-    description: "Global solutions and services showcased with a polished business-oriented layout.",
-    image: "/imgs/new4.jpg",   // You’ll need to provide or host the image file at this path
-    link: "https://wellglobalinc.com/"
-  },
-  
-];
-
 const Ourwork: React.FC = () => {
+  const [projects, setProjects] = useState<Project[]>([]);
+
+  const loadProjects = async () => {
+    try {
+      const res = await fetch(`${config.API_BASE_URL}/projects/list.php`);
+      const data = await res.json();
+      setProjects(data);
+    } catch (error) {
+      console.error("Failed to load projects:", error);
+    }
+  };
+
+  useEffect(() => {
+    loadProjects();
+  }, []);
+
+  // Ensure URLs are correct
+  const makeValidUrl = (url: string) => {
+    if (!url.startsWith("http://") && !url.startsWith("https://")) {
+      return `https://${url}`;
+    }
+    return url;
+  };
+
   return (
     <section id="work" className="py-16 px-4">
       <div className="max-w-7xl mx-auto text-center">
@@ -130,16 +53,18 @@ const Ourwork: React.FC = () => {
               className="bg-white rounded-xl shadow-md overflow-hidden hover:scale-105 transform transition duration-300"
             >
               <img
-                src={p.image}
+                src={`${config.API_BASE_URL}/${p.image}`}
                 alt={p.name}
                 className="w-full h-48 object-cover"
               />
+
               <div className="p-4 text-left">
                 <h3 className="text-xl font-semibold mb-1">{p.name}</h3>
                 <p className="text-sm text-gray-500 mb-2">{p.category}</p>
                 <p className="text-gray-600 mb-4">{p.description}</p>
+
                 <a
-                  href={p.link}
+                  href={makeValidUrl(p.link)}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-[#4d2c91] font-medium hover:underline"
@@ -150,6 +75,7 @@ const Ourwork: React.FC = () => {
             </div>
           ))}
         </div>
+
       </div>
     </section>
   );

@@ -23,8 +23,9 @@ const Header: React.FC = () => {
         <nav className="hidden md:flex gap-8 text-[12px] md:text-[18px]" aria-label="Primary Navigation">
           <ul className="flex gap-7 text-black">
             <li className="nav-item"><a href="#home" className="hover:border-b-2 border-black">Home</a></li>
-            <li className="nav-item"><a href="#services" className="hover:border-b-2 border-black">Services</a></li>
             <li className="nav-item"><a href="#work" className="hover:border-b-2 border-black">Our Work</a></li>
+            <li className="nav-item"><a href="#services" className="hover:border-b-2 border-black">Services</a></li>
+            
             <li className="nav-item"><a href="#whyus" className="hover:border-b-2 border-black">Why Choose Us</a></li>
             <li className="nav-item"><a href="#contact" className="hover:border-b-2 border-black">Contact Us</a></li>
           </ul>
@@ -75,18 +76,19 @@ const Header: React.FC = () => {
             </div>
           </a>
 
+           <a href="#work" onClick={() => setIsMenuOpen(false)}>
+            <div className="flex justify-between items-center gap-6">
+              <p>Our Work</p>
+              <FiArrowRight />
+            </div>
+           </a>
            <a href="#services" onClick={() => setIsMenuOpen(false)}>
             <div className="flex justify-between items-center gap-6">
               <p>Services</p>
               <FiArrowRight />
             </div>
           </a>
-          <a href="#work" onClick={() => setIsMenuOpen(false)}>
-            <div className="flex justify-between items-center gap-6">
-              <p>Our Work</p>
-              <FiArrowRight />
-            </div>
-          </a>
+          
 
           <a href="#whyus" onClick={() => setIsMenuOpen(false)}>
             <div className="flex justify-between items-center gap-6">

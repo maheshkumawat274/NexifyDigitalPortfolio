@@ -14,8 +14,9 @@ const Mainpage = () => {
      <div className="mt-14">
       <Header/>
      <HeroSection/>
-     <ServicesSection/>
+     
      <Ourwork/>
+     <ServicesSection/>
      <WhyChooseUs/>
      <TestimonialSection/>
      <Contactus/>
